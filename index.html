@@ -1586,7 +1586,7 @@
     }
 
 
-    /* DM001 entry gate - frontend only */
+    /* TDM001 entry gate - frontend only */
     .entry-code-box{
       margin-top:12px;
       padding:12px;
@@ -4033,7 +4033,7 @@ input::placeholder{
         <div class="entry-code-label">Deadman access code</div>
         <input id="entryCodeInput" class="input entry-code-input" type="text" inputmode="text" autocomplete="off" placeholder="Enter code" maxlength="12">
         <div class="entry-code-help">Enter your event code to open The Deadman.</div>
-        <div id="entryCodeError" class="entry-code-error">Wrong code. Please enter DM001.</div>
+        <div id="entryCodeError" class="entry-code-error">Wrong code. Please enter TDM001.</div>
       </div>
 
       <div id="loginStatus" class="notice" style="text-align:center;margin-top:12px;">Enter your Deadman code to continue.</div>
@@ -4663,7 +4663,7 @@ input::placeholder{
     const loginStatus = document.getElementById("loginStatus");
     const entryCodeInput = document.getElementById("entryCodeInput");
     const entryCodeError = document.getElementById("entryCodeError");
-    const DEADMAN_ENTRY_CODE = "DM001";
+    const DEADMAN_ENTRY_CODE = "TDM001";
     function addSyncDebug(){ return; }
     function updateSyncDebugMode(){ return; }
 
@@ -5906,7 +5906,7 @@ input::placeholder{
     if(finalNote) finalNote.textContent = finalKm >= 1 ? "Final 1K complete." : "Manual add only for the final 1K.";
   }
 
-  // Fix access button state: accept DM001 or DM001 and don't get stuck disabled.
+  // Fix access button state: accept TDM001 or DM001 and don't get stuck disabled.
   function patchAccessGate(){
     const input = document.getElementById("entryCodeInput");
     const btn = document.getElementById("startAppBtn");
@@ -5916,7 +5916,7 @@ input::placeholder{
 
     function ok(){
       const v = input.value.trim().toUpperCase();
-      return v === "RS001" || v === "DM001";
+      return v === "TDM001" || v === "DM001";
     }
 
     btn.disabled = false;
@@ -5925,7 +5925,7 @@ input::placeholder{
     btn.addEventListener("click", function(e){
       if(!ok()){
         if(err){
-          err.textContent = "Wrong code. Please enter RS001.";
+          err.textContent = "Wrong code. PLEASE TRY AGAIN OR CONTACT WRW IF YOU HAVING LOGIN ISSUES.";
           err.classList.add("show");
         }
         if(status) status.textContent = "Enter the correct Deadman code to continue.";
